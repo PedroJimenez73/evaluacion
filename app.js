@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 443;
 
 app.use(express.static('public'));
 
@@ -12,6 +11,6 @@ app.get('/contact', (req, res) => {
     res.status(200).sendFile(__dirname + '/public/contact.html');
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 })
